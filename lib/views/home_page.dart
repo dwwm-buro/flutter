@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/counter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -73,6 +74,7 @@ class HomePage extends StatelessWidget {
               Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg', width: screenWidth / 3)
             ]
           ),
+          Counter(),
         ],
       )
     );
