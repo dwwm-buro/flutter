@@ -24,6 +24,27 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class Counter extends StatefulWidget {
+  const Counter({super.key});
+
+  @override
+  State<Counter> createState() => _CounterState();
+}
+
+class _CounterState extends State<Counter> {
+  int _count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () => setState(() {
+        _count++;
+      }),
+      child: Text('$_count', style: TextStyle(fontSize: 50)),
+    );
+  }
+}
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -94,7 +115,8 @@ class HomePage extends StatelessWidget {
               Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg', width: screenWidth / 3),
               Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg', width: screenWidth / 3)
             ]
-          )
+          ),
+          Counter()
         ],
       )
     );
