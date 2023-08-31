@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -43,12 +44,14 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       // backgroundColor: Colors.red,
       appBar: AppBar(
         title: const Text('Mon Application'),
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             padding: EdgeInsets.all(25),
@@ -72,6 +75,25 @@ class HomePage extends StatelessWidget {
               button('Call 2', Colors.red, Icons.home),
               button('Call 3', Colors.green, Icons.favorite)
             ],
+          ),
+          Row(
+            children: [
+              Image.asset(
+                'images/cat.jpg',
+                width: MediaQuery.of(context).size.width
+              )
+            ]
+          ),
+          Row(
+            children: [
+              CachedNetworkImage(
+                imageUrl: 'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
+                placeholder: (context, url) => CircularProgressIndicator(),
+                width: screenWidth / 3,
+              ),
+              Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg', width: screenWidth / 3),
+              Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg', width: screenWidth / 3)
+            ]
           )
         ],
       )
