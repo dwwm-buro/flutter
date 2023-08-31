@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/views/single_page.dart';
 
 class ListPage extends StatelessWidget {
   ListPage({super.key});
@@ -23,10 +24,13 @@ class ListPage extends StatelessWidget {
           return Card(
             child: Row(
               children: [
-                Image.network(
-                  meals[index]['image'],
-                  width: 175, height: 200,
-                  fit: BoxFit.cover
+                Hero(
+                  tag: 'meal-${meals[index]['name']}',
+                  child: Image.network(
+                    meals[index]['image'],
+                    width: 175, height: 200,
+                    fit: BoxFit.cover
+                  ),
                 ),
                 Container(
                   padding: EdgeInsets.only(left: 50),
@@ -41,6 +45,12 @@ class ListPage extends StatelessWidget {
                       Text(
                         '${meals[index]['price']} €',
                         style: TextStyle(fontSize: 22)
+                      ),
+                      ElevatedButton(
+                        child: Text('Voir'),
+                        onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => SinglePage(meals[index]))
+                        ),
                       )
                     ],
                   ),
