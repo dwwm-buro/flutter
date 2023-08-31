@@ -2,6 +2,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/counter.dart';
+import 'package:learn_flutter/views/list_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -75,6 +76,12 @@ class HomePage extends StatelessWidget {
             ]
           ),
           Counter(),
+          ElevatedButton(
+            child: Text('Voir la liste'),
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => ListPage())
+            ),
+          )
         ],
       )
     );
