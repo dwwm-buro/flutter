@@ -26,6 +26,10 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+  Widget button(String label) {
+    return Text(label, style: TextStyle(fontSize: 24));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +54,12 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+          Row(
+            children: [
+              button('Call 1'),
+              button('Call 2')
+            ],
+          )
         ],
       )
     );
