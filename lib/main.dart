@@ -26,8 +26,19 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  Widget button(String label) {
-    return Text(label, style: TextStyle(fontSize: 24));
+  Widget button(String label, [Color color = Colors.blue, IconData? icon]) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      child: Column(
+        children: [
+          if (icon != null) Icon(icon, color: color, size: 30),
+          Text(
+            label,
+            style: TextStyle(fontSize: 18, color: color)
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -55,9 +66,11 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               button('Call 1'),
-              button('Call 2')
+              button('Call 2', Colors.red, Icons.home),
+              button('Call 3', Colors.green, Icons.favorite)
             ],
           )
         ],
