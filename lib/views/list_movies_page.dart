@@ -41,16 +41,49 @@ class _ListMoviesPageState extends State<ListMoviesPage> {
 
           movies = snapshot.data as List;
 
-          return ListView.builder(
+          return GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisExtent: 430,
+              // childAspectRatio: 0.75
+            ),
+            padding: EdgeInsets.symmetric(vertical: 20),
             itemCount: movies.length,
             itemBuilder: (context, index) {
               Map movie = movies[index];
 
-              return Text(movie['title']);
+              return Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.network(
+                      movie['poster_path'],
+                      height: 350,
+                      // width: MediaQuery.of(context).size.width / 2,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    child: Text(movie['title'], textAlign: TextAlign.center),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(DateTime.parse(movie['release_date']).year.toString()),
+                      SizedBox(width: 40),
+                      Icon(Icons.star, size: 15, color: Colors.yellow),
+                      SizedBox(width: 5),
+                      Text(movie['vote_average'].toStringAsFixed(1) + '/10')
+                    ],
+                  )
+                ],
+              );
             },
           );
         },
       ),
+      // backgroundColor: Colors.blueGrey,
     );
   }
 }
