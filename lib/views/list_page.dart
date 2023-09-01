@@ -33,21 +33,21 @@ class ListPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 50),
+                  padding: const EdgeInsets.only(left: 50),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         meals[index]['name'],
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)
+                        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Text(
                         '${meals[index]['price']} €',
-                        style: TextStyle(fontSize: 22)
+                        style: const TextStyle(fontSize: 22)
                       ),
                       ElevatedButton(
-                        child: Text('Voir'),
+                        child: const Text('Voir'),
                         onPressed: () => Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => SinglePage(meals[index]))
                         ),

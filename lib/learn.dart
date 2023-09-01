@@ -12,7 +12,7 @@ void main() {
   bool isGirl = true;
   final now = DateTime.now();
 
-  print('Hello $name, tu as $age ans et tu es ${isGirl ? 'une fille' : 'un garçon'}.');
+  print('Hello $name, tu as $age ans et tu es ${isGirl ? 'une fille' : 'un garçon'}. Il est $now.');
 
   for (int i = 1; i <= 10; i++) {
     print(i);

@@ -19,7 +19,7 @@ class _CounterState extends State<Counter> {
           icon: const Icon(Icons.remove),
           onPressed: () => setState(() => _count--),
           iconSize: 50,
-        ) else SizedBox(width: 60),
+        ) else const SizedBox(width: 60),
         Text('$_count', style: const TextStyle(fontSize: 24)),
         IconButton(
           icon: const Icon(Icons.add),
