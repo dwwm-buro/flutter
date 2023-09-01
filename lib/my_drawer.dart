@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/views/home_page.dart';
+import 'package:learn_flutter/views/list_movies_page.dart';
 import 'package:learn_flutter/views/list_page.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -19,7 +20,7 @@ class MyDrawer extends StatelessWidget {
           ListTile(
             title: const Text('Les films'),
             onTap: () => Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => ListPage())
+              MaterialPageRoute(builder: (context) => const ListMoviesPage())
             ),
           ),
         ],
