@@ -2,6 +2,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/counter.dart';
+import 'package:learn_flutter/my_drawer.dart';
 import 'package:learn_flutter/views/list_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -31,6 +32,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Mon Application'),
       ),
+      drawer: MyDrawer(),
       body: ListView(
         children: [
           Container(
